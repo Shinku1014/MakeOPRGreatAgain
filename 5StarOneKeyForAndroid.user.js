@@ -31,6 +31,7 @@ var buttons = [
     {button:"3.5PosOffs", total:4, name:4, history:4, unique:4, location:2, safety:3},
     {button:"3.0", total:3, name:3, history:3, unique:3, location:3, safety:3},
     {button:"1.2", total:2, name:1, history:1, unique:1, location:1, safety:1},
+    {button:"Guna", total:1, name:0, history:0, unique:0, location:0, safety:0},
 ];
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,7 +68,7 @@ function update_button_list(){
             case "answerCtrl.formData.quality":
                 button_list['total'].push($(this));
                 $(this).css({'margin-bottom': '10px'});
-                $(this).children('span').css({'font-size': '42px'});
+                $(this).children('span').css({'font-size': '24px'});
                 $(this).css({'margin-left': '5px'});
                 $(this).css({'margin-right': '5px'});
                 break;
@@ -126,12 +127,11 @@ function add_button() {
         button.className = "button submit-button";
         button.appendChild(textnode);
         button_region.appendChild(button);
-        button.onclick = function()
-            {
-                rate_portal(button_data["total"], button_data["name"], button_data["history"], button_data["unique"], button_data["location"], button_data["safety"]);
-                angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/recon");}, 100);};});
-            }
+        button.onclick = function(){rate_portal(button_data["total"], button_data["name"], button_data["history"], button_data["unique"], button_data["location"], button_data["safety"]);
+                                    {angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/recon");}, 100);}};
+    });
     w.$scope = element => w.angular.element(element).scope();
+    
 }
 
 
