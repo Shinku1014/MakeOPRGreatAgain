@@ -120,6 +120,24 @@ function rate_portal(total, name, history, unique, location, safety) {
 }
 
 function add_button() {
+    var button_region = document.getElementById("descriptionDiv");
+    buttons.forEach(function(button_data) {
+        var button = document.createElement("button");
+        var textnode = document.createTextNode(button_data["button"]);
+        button.className = "button submit-button";
+        button.appendChild(textnode);
+        button_region.appendChild(button);
+        button.onclick = function(){rate_portal(button_data["total"], button_data["name"], button_data["history"], button_data["unique"], button_data["location"], button_data["safety"]);};
+    });
+    w.$scope = element => w.angular.element(element).scope();
+    var submitAndNext = document.createElement("button");
+    submitAndNext.className = "button submit-button";
+    submitAndNext.innerHTML = `<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;<span class="glyphicon glyphicon-forward"></span>`;
+    submitAndNext.title = "Submit and go to next review";
+    submitAndNext.addEventListener("click", function() {angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/recon");}, 1000);});
+    button_region.insertBefore(submitAndNext, null);
+}
+function add_button2() {
     var button_region = document.getElementById("submitDiv");
     buttons.forEach(function(button_data) {
         var button = document.createElement("button");
