@@ -1,7 +1,7 @@
 // ==UserScript==
 // @id			 5 Star One Key for Android
 // @name         5 Star One Key for Android
-// @version      0.30-modify-0.34
+// @version      0.30-modify-0.34.1
 // @description  Give five star with single click
 // @updateURL    https://github.com/Totoro625/MakeOPRGreatAgain/raw/master/5StarOneKeyForAndroid.user.js
 // @downloadURL  https://github.com/Totoro625/MakeOPRGreatAgain/raw/master/5StarOneKeyForAndroid.user.js
@@ -15,19 +15,26 @@
 var auto_select = true;
 
 var buttons = [
-	{button:"4.3", total:5, name:5, history:5, unique:5, location:3, safety:3},
-	{button:"4.5", total:5, name:5, history:5, unique:5, location:3, safety:4},
-    {button:"4.6", total:5, name:5, history:5, unique:5, location:4, safety:4},
-	{button:"4.8", total:5, name:5, history:5, unique:5, location:4, safety:5},
     {button:"5.0", total:5, name:5, history:5, unique:5, location:5, safety:5},
-	{button:"4.1", total:4, name:5, history:5, unique:5, location:3, safety:3},
+    {button:"4.8", total:4, name:5, history:5, unique:5, location:5, safety:5},
+    {button:"4.5", total:4, name:5, history:5, unique:5, location:4, safety:4},
+    {button:"4.3", total:4, name:5, history:5, unique:4, location:4, safety:4},
+    {button:"4.2", total:4, name:4, history:5, unique:4, location:4, safety:4},
+    {button:"4.0", total:4, name:4, history:4, unique:4, location:4, safety:4},
+    {button:"3.8", total:4, name:4, history:4, unique:4, location:3, safety:4},
     {button:"3.7", total:4, name:4, history:4, unique:4, location:3, safety:3},
+    {button:"3.5", total:3, name:4, history:4, unique:4, location:3, safety:3},
+    {button:"4.3PosAccu", total:4, name:4, history:4, unique:4, location:5, safety:5},
+    {button:"4.0PosAccu", total:4, name:4, history:3, unique:3, location:5, safety:5},
+    {button:"3.7PosAccu", total:3, name:3, history:3, unique:3, location:5, safety:5},
+    {button:"3.7NameBad", total:4, name:2, history:4, unique:4, location:4, safety:4},
+    {button:"3.5PosOffs", total:4, name:4, history:4, unique:4, location:2, safety:3},
     {button:"3.0", total:3, name:3, history:3, unique:3, location:3, safety:3},
-    {button:"1.0", total:1, name:0, history:0, unique:0, location:0, safety:0},
+    {button:"1.2", total:2, name:1, history:1, unique:1, location:1, safety:1},
 ];
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////DO NOT EDIT THIS LINE BELOW!
+//////////EDIT THIS LINE BELOW!
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const w = typeof unsafeWindow == "undefined" ? window : unsafeWindow;
@@ -112,22 +119,19 @@ function rate_portal(total, name, history, unique, location, safety) {
 }
 
 function add_button() {
-    var button_region = document.getElementById("submitDiv");
+    var button_region = document.getElementById("descriptionDiv");
     buttons.forEach(function(button_data) {
         var button = document.createElement("button");
         var textnode = document.createTextNode(button_data["button"]);
         button.className = "button submit-button";
         button.appendChild(textnode);
         button_region.appendChild(button);
-        button.onclick = function(){rate_portal(button_data["total"], button_data["name"], button_data["history"], button_data["unique"], button_data["location"], button_data["safety"]);};
-    });
+        button.onclick = function()
+            {
+                rate_portal(button_data["total"], button_data["name"], button_data["history"], button_data["unique"], button_data["location"], button_data["safety"]);
+                angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/recon");}, 100);};});
+            }
     w.$scope = element => w.angular.element(element).scope();
-    var submitAndNext = document.createElement("button");
-    submitAndNext.className = "button submit-button";
-    submitAndNext.innerHTML = `<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;<span class="glyphicon glyphicon-forward"></span>`;
-    submitAndNext.title = "Submit and go to next review";
-    submitAndNext.addEventListener("click", function() {angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/recon");}, 1000);});
-    button_region.insertBefore(submitAndNext, null);
 }
 
 
