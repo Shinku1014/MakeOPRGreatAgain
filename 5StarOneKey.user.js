@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         5 Star One Key
-// @version      0.35.1
+// @version      0.35
 // @description  Give five star with single click
 // @updateURL    https://github.com/jqqqqqqqqqq/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
 // @downloadURL  https://github.com/jqqqqqqqqqq/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
@@ -30,6 +30,7 @@ var buttons = [
     {button:"3.5PosOffs", total:4, name:4, history:4, unique:4, location:2, safety:3},
     {button:"3.0", total:3, name:3, history:3, unique:3, location:3, safety:3},
     {button:"1.2", total:2, name:1, history:1, unique:1, location:1, safety:1},
+    {button:"Guna", total:1, name:0, history:0, unique:0, location:0, safety:0},
 ];
 
 
