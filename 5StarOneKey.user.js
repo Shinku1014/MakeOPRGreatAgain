@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         5 Star One Key
-// @version      0.35
+// @version      0.35.1
 // @description  Give five star with single click
 // @updateURL    https://github.com/jqqqqqqqqqq/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
 // @downloadURL  https://github.com/jqqqqqqqqqq/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
@@ -14,15 +14,27 @@ var auto_select = true;
 var big_stars = true;
 
 var buttons = [
-    {button:"Five Star", total:5, name:5, history:5, unique:5, location:5, safety:5},
-    {button:"553355", total:5, name:5, history:3, unique:3, location:5, safety:5},
-    {button:"533355", total:5, name:3, history:3, unique:3, location:5, safety:5},
-    {button:"353344", total:3, name:5, history:3, unique:3, location:4, safety:4},
+    {button:"5.0", total:5, name:5, history:5, unique:5, location:5, safety:5},
+    {button:"4.8", total:4, name:5, history:5, unique:5, location:5, safety:5},
+    {button:"4.5", total:4, name:5, history:5, unique:5, location:4, safety:4},
+    {button:"4.3", total:4, name:5, history:5, unique:4, location:4, safety:4},
+    {button:"4.2", total:4, name:4, history:5, unique:4, location:4, safety:4},
+    {button:"4.0", total:4, name:4, history:4, unique:4, location:4, safety:4},
+    {button:"3.8", total:4, name:4, history:4, unique:4, location:3, safety:4},
+    {button:"3.7", total:4, name:4, history:4, unique:4, location:3, safety:3},
+    {button:"3.5", total:3, name:4, history:4, unique:4, location:3, safety:3},
+    {button:"4.3PosAccu", total:4, name:4, history:4, unique:4, location:5, safety:5},
+    {button:"4.0PosAccu", total:4, name:4, history:3, unique:3, location:5, safety:5},
+    {button:"3.7PosAccu", total:3, name:3, history:3, unique:3, location:5, safety:5},
+    {button:"3.7NameBad", total:4, name:2, history:4, unique:4, location:4, safety:4},
+    {button:"3.5PosOffs", total:4, name:4, history:4, unique:4, location:2, safety:3},
+    {button:"3.0", total:3, name:3, history:3, unique:3, location:3, safety:3},
+    {button:"1.2", total:2, name:1, history:1, unique:1, location:1, safety:1},
 ];
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////DO NOT EDIT THIS LINE BELOW!
+//////////EDIT THIS LINE BELOW!
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const w = typeof unsafeWindow == "undefined" ? window : unsafeWindow;
@@ -32,7 +44,7 @@ var submit_type = null;
 var first = true;
 function enable_auto_select(){
     if (submit_type == 'EDIT') return;
-    $(".button-star").each(function(){  // use mouse hover to select stars
+    $(".button-star").each(function(){  // Don't use mouse hover to select stars
         if(first) {
             console.warn("first ignored");
             $(this).click(function() {
@@ -45,9 +57,9 @@ function enable_auto_select(){
             });
             first = false;
         }
-        else {
+        /*else {
             $(this).hover(function(){$(this).click();});
-        }
+        }*/
     });
 }
 
@@ -62,13 +74,13 @@ var button_list = {
 
 function update_button_list(){
     if (submit_type == 'EDIT') return;
-    $(".button-star").each(function(){  // use mouse hover to select stars
+    $(".button-star").each(function(){  // Don't use mouse hover to select stars
         switch($(this).attr("ng-model")) {
             case "answerCtrl.formData.quality":
                 button_list['total'].push($(this));
                 if (big_stars) {
                     $(this).css({'margin-bottom': '10px'});
-                    $(this).children('span').css({'font-size': '42px'});
+                    $(this).children('span').css({'font-size': '24px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -78,7 +90,7 @@ function update_button_list(){
                 button_list['name'].push($(this));
                 if (big_stars) {
                     $(this).css({'margin-bottom': '10px'});
-                    $(this).children('span').css({'font-size': '34px'});
+                    $(this).children('span').css({'font-size': '24px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -88,7 +100,7 @@ function update_button_list(){
                 button_list['history'].push($(this));
                 if (big_stars) {
                     $(this).css({'margin-bottom': '10px'});
-                    $(this).children('span').css({'font-size': '34px'});
+                    $(this).children('span').css({'font-size': '24px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -97,7 +109,7 @@ function update_button_list(){
             case "answerCtrl.formData.uniqueness":
                 button_list['unique'].push($(this));
                 if (big_stars) {
-                    $(this).children('span').css({'font-size': '34px'});
+                    $(this).children('span').css({'font-size': '24px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -106,7 +118,7 @@ function update_button_list(){
             case "answerCtrl.formData.location":
                 button_list['location'].push($(this));
                 if (big_stars) {
-                    $(this).children('span').css({'font-size': '34px'});
+                    $(this).children('span').css({'font-size': '24px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -115,7 +127,7 @@ function update_button_list(){
             case "answerCtrl.formData.safety":
                 button_list['safety'].push($(this));
                 if (big_stars) {
-                    $(this).children('span').css({'font-size': '34px'});
+                    $(this).children('span').css({'font-size': '24px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -136,7 +148,7 @@ function rate_portal(total, name, history, unique, location, safety) {
 }
 
 function add_button() {
-    var button_region = document.getElementById("submitDiv");
+    var button_region = document.getElementById("descriptionDiv");
     if (submit_type == 'NEW') {
         buttons.forEach(function(button_data) {
             var button = document.createElement("button");
@@ -144,16 +156,12 @@ function add_button() {
             button.className = "button submit-button";
             button.appendChild(textnode);
             button_region.appendChild(button);
-            button.onclick = function(){rate_portal(button_data["total"], button_data["name"], button_data["history"], button_data["unique"], button_data["location"], button_data["safety"]);};
-        });
-    }
+            button.onclick = function()
+            {
+                rate_portal(button_data["total"], button_data["name"], button_data["history"], button_data["unique"], button_data["location"], button_data["safety"]);
+                angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/recon");}, 100);};});
+            }
     w.$scope = element => w.angular.element(element).scope();
-    var submitAndNext = document.createElement("button");
-    submitAndNext.className = "button submit-button";
-    submitAndNext.innerHTML = `<span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;<span class="glyphicon glyphicon-forward"></span>`;
-    submitAndNext.title = "Submit and go to next review";
-    submitAndNext.addEventListener("click", function() {angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/recon");}, 1000);});
-    button_region.insertBefore(submitAndNext, null);
 }
 
 function move_portal_rate() {
