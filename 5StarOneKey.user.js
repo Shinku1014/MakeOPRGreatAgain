@@ -30,7 +30,6 @@ var buttons = [
     {button:"3.5PosOffs", total:4, name:4, history:4, unique:4, location:2, safety:3},
     {button:"3.0", total:3, name:3, history:3, unique:3, location:3, safety:3},
     {button:"1.2", total:2, name:1, history:1, unique:1, location:1, safety:1},
-    {button:"Guna", total:1, name:0, history:0, unique:0, location:0, safety:0},
 ];
 
 
@@ -149,13 +148,22 @@ function rate_portal(total, name, history, unique, location, safety) {
 }
 
 function add_button() {
-    var button_region = document.getElementById("submitDiv");
+//    var button_region = document.getElementById("submitDiv");
+    var button_region = document.getElementById("descriptionDiv");
+    button_region.style.display = 'inline';
     if (submit_type == 'NEW') {
         buttons.forEach(function(button_data) {
             var button = document.createElement("button");
             var textnode = document.createTextNode(button_data["button"]);
             button.className = "button submit-button";
+         //   button.style.minwidth = '70px';
+            button.style.height = '40px';
+            button.style.background = '#FFFFFF';
+            button.style.border = '2px solid #000000';
+            button.style.color = '#666666';
+            button.style.fontSize = '20px';
             button.appendChild(textnode);
+          //  button_region.insertBefore(button);
             button_region.appendChild(button);
             button.onclick = function()
             {
@@ -208,7 +216,7 @@ function skip_confirm() {
         answerCtrl.markDuplicate8888.apply( answerCtrl.markDuplicate8888, arguments);
         answerCtrl.confirmDuplicate();
         setTimeout(function(){ window.location.assign("/review");}, 1000);
-	};
+    };
 }
 
 function get_submit_type() {
