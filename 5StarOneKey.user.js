@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         5 Star One Key
-// @version      0.35
+// @version      0.35b
 // @description  Give five star with single click
-// @updateURL    https://github.com/jqqqqqqqqqq/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
-// @downloadURL  https://github.com/jqqqqqqqqqq/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
-// @author       jqqqqqqqqqq
-// @match        https://opr.ingress.com/recon
+// @updateURL    https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
+// @downloadURL  https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
+// @author       jqqqqqqqqqq totoro625 ShinkuE
+// @match        https://wayfarer.nianticlabs.com/review
 // @require      https://code.jquery.com/jquery-3.2.1.min.js
 // @grant        unsafeWindow
 // ==/UserScript==
@@ -53,7 +53,7 @@ function enable_auto_select(){
                 answerCtrl2.confirmLowQuality8888 = answerCtrl2.confirmLowQuality;
                 answerCtrl2.confirmLowQuality = function() {
                     answerCtrl2.confirmLowQuality8888.apply( answerCtrl2.confirmLowQuality8888, arguments);
-                    setTimeout(function(){ window.location.assign("/recon");}, 1000);
+                    setTimeout(function(){ window.location.assign("/review");}, 1000);
                 };
             });
             first = false;
@@ -81,7 +81,7 @@ function update_button_list(){
                 button_list['total'].push($(this));
                 if (big_stars) {
                     $(this).css({'margin-bottom': '10px'});
-                    $(this).children('span').css({'font-size': '24px'});
+                    $(this).children('span').css({'font-size': '42px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -91,7 +91,7 @@ function update_button_list(){
                 button_list['name'].push($(this));
                 if (big_stars) {
                     $(this).css({'margin-bottom': '10px'});
-                    $(this).children('span').css({'font-size': '24px'});
+                    $(this).children('span').css({'font-size': '34px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -101,7 +101,7 @@ function update_button_list(){
                 button_list['history'].push($(this));
                 if (big_stars) {
                     $(this).css({'margin-bottom': '10px'});
-                    $(this).children('span').css({'font-size': '24px'});
+                    $(this).children('span').css({'font-size': '34px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -110,7 +110,7 @@ function update_button_list(){
             case "answerCtrl.formData.uniqueness":
                 button_list['unique'].push($(this));
                 if (big_stars) {
-                    $(this).children('span').css({'font-size': '24px'});
+                    $(this).children('span').css({'font-size': '34px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -119,7 +119,7 @@ function update_button_list(){
             case "answerCtrl.formData.location":
                 button_list['location'].push($(this));
                 if (big_stars) {
-                    $(this).children('span').css({'font-size': '24px'});
+                    $(this).children('span').css({'font-size': '34px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -128,7 +128,7 @@ function update_button_list(){
             case "answerCtrl.formData.safety":
                 button_list['safety'].push($(this));
                 if (big_stars) {
-                    $(this).children('span').css({'font-size': '24px'});
+                    $(this).children('span').css({'font-size': '34px'});
                     $(this).css({'margin-left': '5px'});
                     $(this).css({'margin-right': '5px'});
                 }
@@ -149,7 +149,7 @@ function rate_portal(total, name, history, unique, location, safety) {
 }
 
 function add_button() {
-    var button_region = document.getElementById("descriptionDiv");
+    var button_region = document.getElementById("submitDiv");
     if (submit_type == 'NEW') {
         buttons.forEach(function(button_data) {
             var button = document.createElement("button");
@@ -160,7 +160,7 @@ function add_button() {
             button.onclick = function()
             {
                 rate_portal(button_data["total"], button_data["name"], button_data["history"], button_data["unique"], button_data["location"], button_data["safety"]);
-                angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/recon");}, 100);};});
+                angular.element(document.getElementById('AnswersController')).scope().answerCtrl.submitForm();setTimeout(function(){ window.location.assign("/review");}, 100);};});
             }
     w.$scope = element => w.angular.element(element).scope();
 }
@@ -201,13 +201,13 @@ function move_portal_rate() {
 }
 
 function skip_confirm() {
-    if (submit_type == 'EDIT') return;
+    //if (submit_type == 'EDIT') return;
     var answerCtrl = angular.element(document.getElementById('AnswersController')).scope().answerCtrl;
     answerCtrl.markDuplicate8888 = answerCtrl.markDuplicate;
     answerCtrl.markDuplicate = function() {
         answerCtrl.markDuplicate8888.apply( answerCtrl.markDuplicate8888, arguments);
         answerCtrl.confirmDuplicate();
-        setTimeout(function(){ window.location.assign("/recon");}, 1000);
+        setTimeout(function(){ window.location.assign("/review");}, 1000);
 	};
 }
 
@@ -220,7 +220,7 @@ function get_submit_type() {
 function execute_all() {
     submit_type = get_submit_type();
     if (submit_type == null) {
-        setTimeout(execute_all, 100);
+        setTimeout(execute_all, 1000);
         return;
     }
     if(auto_select) {
@@ -235,6 +235,6 @@ function execute_all() {
 }
 
 (function() {
-    setTimeout(execute_all, 500);
+    setTimeout(execute_all, 100);
 })();
 
