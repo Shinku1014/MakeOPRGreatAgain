@@ -2,8 +2,8 @@
 // @name         带阴影按钮
 // @version      0.35.1b
 // @description  Give five star with single click
-// @updateURL    https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
-// @downloadURL  https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
+// @updateURL    https://github.com/Shinku1014/MakeOPRGreatAgain/raw/%E5%B8%A6%E9%98%B4%E5%BD%B1%E7%9A%84%E6%8C%89%E9%92%AE/5StarOneKey.user.js
+// @downloadURL  https://github.com/Shinku1014/MakeOPRGreatAgain/raw/%E5%B8%A6%E9%98%B4%E5%BD%B1%E7%9A%84%E6%8C%89%E9%92%AE/5StarOneKey.user.js
 // @author       jqqqqqqqqqq totoro625 ShinkuE
 // @match        https://wayfarer.nianticlabs.com/review
 // @require      https://code.jquery.com/jquery-3.2.1.min.js
