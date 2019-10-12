@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         带阴影按钮
+// @name         5 Star One Key
 // @version      0.35.1b
-// @description  Give five star with single click
+// @description  带阴影按钮
 // @updateURL    https://github.com/Shinku1014/MakeOPRGreatAgain/raw/%E5%B8%A6%E9%98%B4%E5%BD%B1%E7%9A%84%E6%8C%89%E9%92%AE/5StarOneKey.user.js
 // @downloadURL  https://github.com/Shinku1014/MakeOPRGreatAgain/raw/%E5%B8%A6%E9%98%B4%E5%BD%B1%E7%9A%84%E6%8C%89%E9%92%AE/5StarOneKey.user.js
 // @author       jqqqqqqqqqq totoro625 ShinkuE
