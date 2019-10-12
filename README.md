@@ -10,7 +10,7 @@ This is a English version
 
 The author knows nothing about frontend, so pull requests are welcome in order to improve code quality!
 
-| [5StarOneKey](#5staronekey)             | One key for star       | [Desktop](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js) \| [Android](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKeyForAndroid.user.js) |
+| [5StarOneKey](#5staronekey)             | One key for star       | [Desktop, flat botton](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js) \| [Desktop, shadow botton](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/%E5%B8%A6%E9%98%B4%E5%BD%B1%E7%9A%84%E6%8C%89%E9%92%AE/5StarOneKey.user.js) \| [Android](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKeyForAndroid.user.js) |
 
 
 
@@ -38,7 +38,7 @@ Change the numbers below, and append it to the list in the user.js.
 这是一份简体中文版本的说明
 
 
-| [5StarOneKey](#5staronekey-1)             | 一键打分               | [电脑版](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js) \| [安卓版](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKeyForAndroid.user.js) |
+| [5StarOneKey](#5staronekey-1)             | 一键打分               | [电脑版 扁平按钮](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js) \| [电脑版 带阴影按钮](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/%E5%B8%A6%E9%98%B4%E5%BD%B1%E7%9A%84%E6%8C%89%E9%92%AE/5StarOneKey.user.js) \|[安卓版](https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKeyForAndroid.user.js) |
 
 ## 5StarOneKey
 
