@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         5 Star One Key
-// @version      0.35b
-// @description  Give five star with single click
+// @name         5 Star One Key 
+// @version      0.35.1a
+// @description  扁平式按钮
 // @updateURL    https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
 // @downloadURL  https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
 // @author       jqqqqqqqqqq totoro625 ShinkuE
@@ -23,13 +23,12 @@ var buttons = [
     {button:"3.8", total:4, name:4, history:4, unique:4, location:3, safety:4},
     {button:"3.7", total:4, name:4, history:4, unique:4, location:3, safety:3},
     {button:"3.5", total:3, name:4, history:4, unique:4, location:3, safety:3},
-    {button:"4.3PosAccu", total:4, name:4, history:4, unique:4, location:5, safety:5},
-    {button:"4.0PosAccu", total:4, name:4, history:3, unique:3, location:5, safety:5},
-    {button:"3.7PosAccu", total:3, name:3, history:3, unique:3, location:5, safety:5},
-    {button:"3.7NameBad", total:4, name:2, history:4, unique:4, location:4, safety:4},
-    {button:"3.5PosOffs", total:4, name:4, history:4, unique:4, location:2, safety:3},
-    {button:"3.0", total:3, name:3, history:3, unique:3, location:3, safety:3},
-    {button:"1.2", total:2, name:1, history:1, unique:1, location:1, safety:1},
+    {button:"4.3 位准", total:4, name:4, history:4, unique:4, location:5, safety:5},
+    {button:"4.0 位准", total:4, name:4, history:3, unique:3, location:5, safety:5},
+    {button:"3.7 位准", total:3, name:3, history:3, unique:3, location:5, safety:5},
+    {button:"3.5 劣名", total:4, name:1, history:4, unique:4, location:4, safety:4},
+    {button:"3.5 疑偏", total:4, name:4, history:4, unique:4, location:2, safety:3},
+    {button:"3.0 甩锅", total:3, name:3, history:3, unique:3, location:3, safety:3},
 ];
 
 
@@ -157,11 +156,13 @@ function add_button() {
             var textnode = document.createTextNode(button_data["button"]);
             button.className = "button submit-button";
          //   button.style.minwidth = '70px';
-            button.style.height = '40px';
-            button.style.background = '#FFFFFF';
-            button.style.border = '2px solid #000000';
-            button.style.color = '#666666';
-            button.style.fontSize = '20px';
+            button.style.height = '32px';
+            button.style.background = '#F1F1F1';
+            button.style.border = '0px';
+            button.style.borderRadius = '0px';
+            button.style.color = '#202020';
+            button.style.fontSize = '16px';
+            button.style.fontWeight = 500;
             button.appendChild(textnode);
           //  button_region.insertBefore(button);
             button_region.appendChild(button);
