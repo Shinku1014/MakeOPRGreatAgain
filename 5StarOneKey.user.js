@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         5 Star One Key 
-// @version      0.35.1a
-// @description  扁平式按钮
-// @updateURL    https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
-// @downloadURL  https://github.com/Shinku1014/MakeOPRGreatAgain/raw/master/5StarOneKey.user.js
+// @name         5 Star One Key
+// @version      0.35.1b
+// @description  带阴影按钮
+// @updateURL    https://github.com/Shinku1014/MakeOPRGreatAgain/raw/%E5%B8%A6%E9%98%B4%E5%BD%B1%E7%9A%84%E6%8C%89%E9%92%AE/5StarOneKey.user.js
+// @downloadURL  https://github.com/Shinku1014/MakeOPRGreatAgain/raw/%E5%B8%A6%E9%98%B4%E5%BD%B1%E7%9A%84%E6%8C%89%E9%92%AE/5StarOneKey.user.js
 // @author       jqqqqqqqqqq totoro625 ShinkuE
 // @match        https://wayfarer.nianticlabs.com/review
 // @require      https://code.jquery.com/jquery-3.2.1.min.js
@@ -157,12 +157,14 @@ function add_button() {
             button.className = "button submit-button";
          //   button.style.minwidth = '70px';
             button.style.height = '32px';
-            button.style.background = '#F1F1F1';
+            button.style.background = '#FFFFFF';
             button.style.border = '0px';
-            button.style.borderRadius = '0px';
-            button.style.color = '#202020';
+            button.style.borderRadius = '4px';
+            button.style.color = '#000000';
             button.style.fontSize = '16px';
             button.style.fontWeight = 500;
+            button.style.color = '#df471c';
+            button.style.boxShadow = '1px 1px 2px 1px #8e8e8e, -0.5px 0px 1px 0px #e3e3e3, 0px -0.5px 1px 0px #eeeeee';
             button.appendChild(textnode);
           //  button_region.insertBefore(button);
             button_region.appendChild(button);
