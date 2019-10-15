@@ -160,10 +160,9 @@ function add_button() {
             button.style.background = '#FFFFFF';
             button.style.border = '0px';
             button.style.borderRadius = '4px';
-            button.style.color = '#000000';
             button.style.fontSize = '16px';
             button.style.fontWeight = 500;
-            button.style.color = '#df471c';
+            button.style.color = '#202020';
             button.style.boxShadow = '1px 1px 2px 1px #8e8e8e, -0.5px 0px 1px 0px #e3e3e3, 0px -0.5px 1px 0px #eeeeee';
             button.appendChild(textnode);
           //  button_region.insertBefore(button);
