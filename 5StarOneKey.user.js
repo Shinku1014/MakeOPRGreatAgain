@@ -150,6 +150,7 @@ function add_button() {
 //    var button_region = document.getElementById("submitDiv");
     var button_region = document.getElementById("descriptionDiv");
     button_region.style.display = 'inline';
+    button_region.style.overflow = 'scroll';
     if (submit_type == 'NEW') {
         buttons.forEach(function(button_data) {
             var button = document.createElement("button");
